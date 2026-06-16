@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Checklist - Pemsa</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Mantenimiento">
+    <meta name="mobile-web-app-capable" content="yes">
+
+    <meta name="theme-color" content="#1C252C">
+
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="icon" type="image/png" href="icon.png">
+
+    <link rel="manifest" href="data:application/json;charset=utf-8,%7B%22name%22%3A%22Checklist%20Mantenimiento%22%2C%22short_name%22%3A%22Mantenimiento%22%2C%22display%22%3A%22standalone%22%2C%22start_url%22%3A%22%2F%22%2C%22background_color%22%3A%22%231C252C%22%2C%22theme_color%22%3A%22%231C252C%22%2C%22icons%22%3A%5B%7B%22src%22%3A%22icon.png%22%2C%22sizes%22%3A%22512x512%22%2C%22type%22%3A%22image%2Fpng%22%7D%5D%7D">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden; 
+            /* Fondo azul marino para que no se vea blanco mientras carga el iframe */
+            background-color: #1C252C; 
+        }
+        iframe {
+            width: 100vw;
+            height: 100vh;
+            border: none;
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    
+    <iframe src="TU_ENLACE_DE_APPS_SCRIPT_AQUI" allowfullscreen></iframe>
+    
+    <script>
+        // Registro del Service Worker apuntando a un archivo real (sw.js)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('sw.js').then(function(registration) {
+                    console.log('ServiceWorker registrado con éxito');
+                }).catch(function(err) {
+                    console.log('Fallo en el registro del ServiceWorker: ', err);
+                });
+            });
+        }
+    </script>
+</body>
+</html>
